@@ -1,0 +1,46 @@
+const num = 981654;
+console.log(num);
+
+const numArray = numToArray(num);
+console.log(numArray);
+
+const sortedNumArray = sortNumArray(numArray);
+console.log(sortedNumArray);
+
+const numArrayToNum = numArrayToNum(sortedNumArray);
+console.log(numArrayToNum);
+
+
+function numToArray(num){
+    let myFunc = numAsString => Number(numAsString);
+    return Array.from(String(num), myFunc);
+}
+
+function sortNumArray(numArray){
+    for (let i = 0; i < numArray.length ;i++) {
+
+        let indexOfMin = i;
+        for (let j = 0; j <numArray.length ; j++) {
+           if(numArray[j] < numArray[indexOfMin]){
+               indexOfMin = j;
+           }
+        }
+        swap(numArray,i,indexOfMin);
+    }
+    return numArray;
+}
+
+function swap(array, a, b) {
+    const valAtB = array[b];
+    array[b] = array[a];
+    array[a] = valAtB;
+}
+
+ function numArrayToNum(sortedNumArray){
+    let sum = 0 ;
+     for (const num in sortedNumArray){
+         sum *= 10;
+         sum += num;
+     }
+ }
+

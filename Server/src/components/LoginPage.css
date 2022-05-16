@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+.mainPanel {
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.title {
+    margin-top: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    flex-wrap: wrap;
+}
+
+.input {
+    height: 40px;
+    width: 70%;
+    text-align: center;
+    border: 1px solid black;
+    flex-wrap: wrap;
+    font-weight: bold;
+    color: black;
+    font-size: 18px;
+}
+
+.input {
+    margin-top: 30px;
+}
+
+button {
+    margin-top: 20px;
+    font-weight: bold;
+    color: black;
+    height: 40px;
+    width: 70%;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+#userName {
+    margin-top: 30px;
+}
+
+#Password {
+    margin-top: 10px;
+}
