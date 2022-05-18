@@ -47,8 +47,8 @@ app.post("/register", async (req, resp) => {
     try {
         UserDetails.exists({ID: req.body.ID}, async function (err, doc) {
             if (doc) {
-                console.log("User already register");
-                resp.send("{\"issues\":\"User Exists!!!\"}");
+                console.log("User " + req.body.ID + " already registered");
+                resp.status(400).send("User Exists!!!");
 
             } else {
                 const userDetails = new UserDetails(req.body);
@@ -56,15 +56,14 @@ app.post("/register", async (req, resp) => {
                 result = result.toObject();
                 if (result) {
                     delete result.password;
-                    resp.send(req.body);
                     console.log(result);
+                    resp.status(200).send("");
                 }
             }
         });
     } catch (e) {
-        resp.send("{\"issues\":\"Unknown Issue!!!\"}");
+        resp.status(400).send("Unknown Issue!!!");
     }
 });
-
 
 app.listen(5000);

@@ -19,8 +19,8 @@ export default function UserPage(props) {
         }
 
         if (isInputFieldsValid) {
-            alert(JSON.stringify(paymentArray));
-            window.location.href = '/';
+            // alert(JSON.stringify(paymentArray));
+            // window.location.href = '/';
         }
 
         return false;

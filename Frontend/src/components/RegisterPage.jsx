@@ -24,8 +24,7 @@ export default function RegisterPage(props) {
         _checkConfirmPasswordIssues();
 
         if (issues.length === 0) {
-            props.registerUserDetails(ID, userName, password, money);
-            //window.location.href = '/';
+            tryToAddUserInBackend(ID, userName, password, money);
 
         } else {
             printIssues();
@@ -68,6 +67,34 @@ export default function RegisterPage(props) {
         const moneyAmount = Math.max(moneyMin, Math.min(moneyMax, Number(event.target.value)));
         setMoney(moneyAmount);
     };
+
+    // this function show all the user details in database
+    function tryToAddUserInBackend(ID, userName, password, money) {
+        const userDetails = {
+            ID: ID,
+            username: userName,
+            password: password,
+            money: money
+        }
+
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(userDetails)
+        };
+        fetch('http://localhost:5000/register', requestOptions)
+            .then(response => {
+                if (response.status === 200) {
+                    window.location.href = '/';
+                }
+                return response.text();
+            })
+            .then(ServerIssue => {
+                if (ServerIssue) {
+                    alert("Response: " + ServerIssue)
+                }
+            });
+    }
 
     return (
         <div className="mainPanel">

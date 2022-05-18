@@ -9,9 +9,9 @@
     "react-scripts": "5.0.1"
   },
   "scripts": {
-    "start": "concurrently --kill-others \"npm run startDB\" \"npm run startServer\"",
-    "startDB": "npx nodemon '../DB'",
-    "startServer": "react-scripts start"
+    "start": "concurrently --kill-others \"npm run startBackend\" \"npm run startFrontend\"",
+    "startBackend": "npx nodemon '../Backend'",
+    "startFrontend": "react-scripts start"
   },
   "eslintConfig": {
     "extends": [
